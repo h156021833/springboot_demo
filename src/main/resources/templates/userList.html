@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table{
+        margin: 20px auto;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th,td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px 10px;
+        text-align: center;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>id</th>
+            <th>用户名</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>生日</th>
+            <th>电话</th>
+            <th>地址</th>
+            <th>角色</th>
+        </tr>
+        <tr th:each="user,status : ${userList}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.usercode}"></td>
+            <td th:text="${user.username}"></td>
+            <td>
+                <span th:text="男" th:if="${user.gender==1}"></span>
+                <span th:text="女" th:if="${user.gender==2}"></span>
+            </td>
+            <td th:text="${#dates.format(user.birthday,'yyyy-MM-dd')}"></td>
+            <td th:text="${user.phone}"></td>
+            <td th:text="${user.address}"></td>
+            <td>
+                <span th:text="系统管理员" th:if="${user.userrole==1}"></span>
+                <span th:text="经理" th:if="${user.userrole==2}"></span>
+                <span th:text="普通员工" th:if="${user.userrole==3}"></span>
+                <span th:text="总裁" th:if="${user.userrole==4}"></span>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

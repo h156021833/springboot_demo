@@ -8,7 +8,8 @@ public class ServletInitializer extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(SpringbootDemoApplication.class);
-        //2
+        //1
+        // 2
     }
 
 }

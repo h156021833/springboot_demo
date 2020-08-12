@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @MapperScan(basePackages = "cn.kgc.springboot_demo.mapper")
-@ComponentScan(basePackages = {"cn.kgc.springboot_demo.controller","cn.kgc.springboot_demo.service","cn.kgc.springboot_demo.config"})
+@ComponentScan(basePackages = {"cn.kgc.springboot_demo.controller", "cn.kgc.springboot_demo.service", "cn.kgc.springboot_demo.config"})
 @EnableTransactionManagement
 public class SpringbootDemoApplication {
 

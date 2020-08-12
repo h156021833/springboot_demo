@@ -15,14 +15,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public boolean verify(String usercode, String userpassword) {
-        boolean flag;
+    public User verify(String usercode, String userpassword) {
         User user = userMapper.selectByUsercode(usercode);
         if (user == null)
-            throw new RuntimeException(usercode+"不存在");
+            throw new RuntimeException(usercode + "不存在");
         else
-            flag = user.getUserpassword().equals(userpassword);
-        return flag;
+            return user;
     }
 
     @Override

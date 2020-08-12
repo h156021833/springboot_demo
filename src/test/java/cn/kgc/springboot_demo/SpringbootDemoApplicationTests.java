@@ -22,8 +22,8 @@ public class SpringbootDemoApplicationTests {
 
     @Test
     public void test01(){
-        boolean flag = userService.verify("admin", "1234567");
-        Assert.assertTrue(flag);
+        User user = userService.verify("admin", "1234567");
+        Assert.assertNotNull(user);
     }
 
     @Test

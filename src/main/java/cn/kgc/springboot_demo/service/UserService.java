@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    boolean verify(String usercode,String userpassword);
+    User verify(String usercode, String userpassword);
 
     void register(User user);
 

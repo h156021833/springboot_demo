@@ -25,7 +25,7 @@ public class UserController {
     public String loginPage() {
         User login = (User) redisTemplate.opsForValue().get("loginUser");
         if (login != null){
-            redisTemplate.expire("userLogin",600, TimeUnit.SECONDS);
+            redisTemplate.expire("loginUser",600, TimeUnit.SECONDS);
             return "redirect:/userList";
         } else {
             return "login";
@@ -43,7 +43,7 @@ public class UserController {
         }
         if (user != null) {
             redisTemplate.opsForValue().set("loginUser",user);
-            redisTemplate.expire("userLogin",600, TimeUnit.SECONDS);
+            redisTemplate.expire("loginUser",600, TimeUnit.SECONDS);
             return "redirect:/userList";
         } else {
             return "login";
@@ -83,7 +83,7 @@ public class UserController {
         if (user == null){
             return "redirect:/loginPage";
         }else {
-            redisTemplate.expire("userLogin",600, TimeUnit.SECONDS);
+            redisTemplate.expire("loginUser",600, TimeUnit.SECONDS);
             List<User> list = (List<User>) redisTemplate.opsForValue().get("userList");
             if (list == null){
                 list = userService.searchAll();
